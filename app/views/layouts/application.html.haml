@@ -1,0 +1,47 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="">
+/[if IE 8] <html class="no-js lt-ie9" lang="">
+/ [if gt IE 8]><!
+%html.no-js{:lang => ""}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "apple-touch-icon.png", :rel => "apple-touch-icon"}/
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    /[if lt IE 8]
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    .navbar.navbar-inverse.navbar-custom.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} My App
+        #main-menu.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "#option-1"} Option 1
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Main Option 2
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#option-2"} Option 2
+                %li
+                  %a{:href => "#option-3"} Option 3
+            %li
+              %a{:href => "#logout"} Log Out
+        / /.nav-collapse
+    .container{:style => "padding-top: 60px"}
+      = yield
