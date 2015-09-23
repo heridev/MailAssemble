@@ -11,7 +11,8 @@ AutoresponderApp
       $stateProvider
         .state("home", {
           url: "/",
-          template: '<h1>Welcome to our new autoresponder</h1>',
+          controller: 'formPermissionController',
+          templateUrl: 'autoresponder/create_form.html',
         })
 
     }

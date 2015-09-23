@@ -21,3 +21,6 @@
 
 //= require autoresponder/app
 //= require autoresponder/states
+//= require autoresponder/formPermissionService
+//= require autoresponder/formPermissionController
+//= require autoresponder/create_form

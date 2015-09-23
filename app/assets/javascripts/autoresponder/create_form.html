@@ -1,0 +1,63 @@
+<form name="ResourceInvitationForm" novalidate ng-submit="createNewForm()">
+
+  <div class="col-md-12">
+    <div class="heading_a">
+      <div class="heading_text">Select the privileges</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <input ng-model="custom_form.permissions.patients_create"
+                 type="checkbox"
+                 class="icheck"
+                 id='patients_create'>
+          <label for="patients_create" class="icheck_label">create</label>
+        </p>
+
+        <p>
+          <input ng-model="custom_form.permissions.patients_show"
+                 type="checkbox"
+                 class="icheck"
+                 id='patients_show'>
+          <label for="patients_show" class="icheck_label">View</label>
+        </p>
+
+        <p>
+          <input ng-model="custom_form.permissions.patients_update"
+                 type="checkbox"
+                 class="icheck"
+                 id='patients_update'>
+          <label for="patients_update" class="icheck_label">Edit</label>
+        </p>
+
+        <p>
+          <input ng-model="custom_form.permissions.patients_destroy"
+                 type="checkbox"
+                 class="icheck"
+                 id='patients_destroy'>
+          <label for="patients_destroy" class="icheck_label">Destroy</label>
+        </p>
+
+        <p>
+          <input ng-model="custom_form.permissions.patients_index"
+                 type="checkbox"
+                 class="icheck"
+                 id='patients_index'>
+          <label for="patients_index" class="icheck_label">List/Search</label>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col-md-12">
+      <div class='row'>
+        <div class="col-md-12">
+          <button class="btn btn-sm btn-primary" ng-disabled="ResourceInvitationForm.$invalid">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
