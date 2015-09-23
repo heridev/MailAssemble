@@ -1,11 +1,13 @@
 <form name="ResourceInvitationForm" novalidate ng-submit="createNewForm()">
 
   <div class="col-md-12">
-    <div class="heading_a">
-      <div class="heading_text">Select the privileges</div>
-    </div>
-
     <div class="row">
+      <div class="col-md-12">
+        <p>
+          <label for="name">select a name</label>
+          <input type="name" name='name' id="name" ng-model='custom_form.name' required class="form-control"/>
+        </p>
+
       <div class="col-md-12">
         <p>
           <input ng-model="custom_form.permissions.patients_create"
