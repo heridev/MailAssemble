@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917214313) do
+ActiveRecord::Schema.define(version: 20150918231938) do
+
+  create_table "email_lists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "default_from"
+    t.string   "default_from_name"
+    t.text     "remind_people_message"
+    t.string   "company_organization"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "state_province"
+    t.string   "phone"
+    t.string   "secure_key"
+    t.string   "thank_you_page_url"
+    t.string   "already_subscribed_url"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,28 @@
+.email-list-details
+  %ul.nav-menu
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.form') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.form({ emailListId: email_list.id })'}
+        Email list details
+
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.signup_forms') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.signup_forms.settings({ emailListId: email_list.id })'}
+        Sign up forms
+
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.subscribers({ emailListId: email_list.id })'}
+        Manage subscribers
+
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.follow_ups') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups({ emailListId: email_list.id })'}
+        Follow ups
+
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.stats') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.stats({ emailListId: email_list.id })'}
+        Stats
+
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.add_subscriber') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.add_subscriber({ emailListId: email_list.id })'}
+        Add subscribers
+
+%ui-view
+

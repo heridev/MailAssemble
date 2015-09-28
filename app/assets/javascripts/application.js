@@ -18,6 +18,8 @@
 //= require angular-ui-router
 //= require restangular/restangular
 //= require angular-rails-templates
+//= require angular-growl-2
 
 //= require autoresponder/app
 //= require autoresponder/states
+//= require_tree ./autoresponder/components
