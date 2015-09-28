@@ -1,0 +1,27 @@
+%form.sign-up-form-settings{:name => "EmailListForm",
+                            "ng-submit" => "updateEmailList()",
+                            :novalidate => ""}
+  .row
+    .col-md-4
+
+      .form-group
+        %label{:for => "thank-you-page"} Thank you page url (*)
+        %input#thank-you-page.form-control{:type => "url",
+                                           'required' => 'required',
+                                           :placeholder => 'http://',
+                                           "ng-model" => 'email_list.thank_you_page_url'}/
+
+      .form-group
+        %label{:for => "already-subscribed"} Already subscribed page (*)
+        %input#already-subscribed.form-control{:type => "url",
+                                               'required' => 'required',
+                                               :placeholder => 'http://',
+                                               'ng-model' => 'email_list.already_subscribed_url'}/
+
+  .row
+    .col-md-6
+      %button{ type:'submit',
+               'ng-disabled' => "EmailListForm.$invalid",
+               class: 'btn btn-success'}
+        Save settings
+

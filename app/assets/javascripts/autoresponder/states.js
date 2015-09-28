@@ -60,6 +60,25 @@ AutoresponderApp
           }
         })
 
+        .state("email_list.details.signup_forms", {
+          url: "/signup_forms",
+          abstract: true,
+          controller: 'emailListSignupFormCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/signup_forms/main.html',
+        })
+
+        .state("email_list.details.signup_forms.settings", {
+          url: "",
+          controller: 'emailListSignupFormCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/signup_forms/settings.html',
+        })
+
+        .state("email_list.details.signup_forms.publish", {
+          url: "/publish",
+          controller: 'emailListSignupFormCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/signup_forms/publish.html',
+        })
+
         .state("email_list.details.form", {
           url: "",
           templateUrl: 'autoresponder/components/email_lists/details/form.html',

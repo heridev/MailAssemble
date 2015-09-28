@@ -1,12 +1,13 @@
 class EmailList < ActiveRecord::Base
   belongs_to :user
+  has_many :subscribers
 
   validates_presence_of :name,
                         :user_id,
                         :default_from,
                         :default_from_name
 
-  after_save :generate_secure_key
+  after_create :generate_secure_key
 
   private
 
