@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'haml'
+gem 'multi_json'
+gem 'active_model_serializers'
 
 gem 'bundler'
 gem 'angular-rails-templates'
@@ -19,6 +21,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-ui-router'
   gem 'rails-assets-restangular'
   gem 'rails-assets-underscore'
+  gem 'rails-assets-angular-growl-2'
 end
 
 # I tried to put this in assets group
@@ -28,6 +31,7 @@ gem 'less-rails'
 gem 'railsstrap'
 
 group :development, :test do
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

@@ -1,0 +1,85 @@
+.input-group.form-group{'ng-class' => "{ 'has-error': EmailListForm.name.$invalid }"}
+  %span.input-group-addon List name
+  %input.form-control{ :name => "name",
+                       'required' => 'required',
+                       :placeholder => "List name",
+                       'ng-model' => 'email_list.name',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group{'ng-class' => "{ 'has-error': EmailListForm.default_from.$invalid }"}
+  %span.input-group-addon Default "from" Email
+  %input.form-control{ :name => "default_from",
+                       'required' => 'required',
+                       :placeholder => 'Default "from" Email',
+                       'ng-model' => 'email_list.default_from',
+                       :type => "email",
+                       :value => ""}/
+
+.input-group.form-group{'ng-class' => "{ 'has-error': EmailListForm.default_from_name.$invalid }"}
+  %span.input-group-addon Default "from" Name
+  %input.form-control{ :name => "default_from_name",
+                       'required' => 'required',
+                       :placeholder => 'Default "from" Email',
+                       'ng-model' => 'email_list.default_from_name',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group{'ng-class' => "{ 'has-error': EmailListForm.remind_people_message.$invalid }"}
+  %span.input-group-addon Reminder message
+  %textarea.form-control{ :name => "remind_people_message",
+                          :rows => "5",
+                          'required' => 'required',
+                          :placeholder => 'Remind people how they got in your list',
+                          'ng-model' => 'email_list.remind_people_message',
+                          :type => "text",
+                          :value => ""}
+
+.input-group.form-group
+  %span.input-group-addon Company / Organization
+  %input.form-control{ :name => "company_organization",
+                       :placeholder => 'Company / Organization',
+                       'ng-model' => 'email_list.company_organization',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group
+  %span.input-group-addon Address
+  %input.form-control{ :name => "address",
+                       :placeholder => 'Address',
+                       'ng-model' => 'email_list.address',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group
+  %span.input-group-addon City
+  %input.form-control{ :name => "city",
+                       :placeholder => 'City',
+                       'ng-model' => 'email_list.city',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group
+  %span.input-group-addon Country
+  %input.form-control{ :name => "country",
+                       :placeholder => 'Country',
+                       'ng-model' => 'email_list.country',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group
+  %span.input-group-addon State
+  %input.form-control{ :name => "state",
+                       :placeholder => 'State',
+                       'ng-model' => 'email_list.state_province',
+                       :type => "text",
+                       :value => ""}/
+
+.input-group.form-group
+  %span.input-group-addon Phone
+  %input.form-control{ :name => "phone",
+                       :placeholder => 'Phone',
+                       'ng-model' => 'email_list.phone',
+                       :type => "text",
+                       :value => ""}/
+

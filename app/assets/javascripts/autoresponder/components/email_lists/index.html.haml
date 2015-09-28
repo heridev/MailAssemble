@@ -1,0 +1,40 @@
+#email-lists
+  .row
+    %button{class: 'btn btn-success pull-right', 'ui-sref' => 'email_list.add'}
+      Create List
+  .row{class: 'span12', "ng-repeat" => "list in email_list"}
+    .col-md-6
+      %h4
+        {{list.name}}
+      %p {{list.created_at}}
+
+    .col-md-3
+      .data.inline-block{"aria-hidden" => "true"}
+        %h4 0
+        %p.dim-el Subscribers
+      .data.inline-block{"aria-hidden" => "true"}
+        %h4 0.0%
+        %p.dim-el Opens
+      .data.inline-block{"aria-hidden" => "true"}
+        %h4 0.0%
+        %p.dim-el Clicks
+
+    .col-md-3.actions
+      .btn-group
+        %button.btn.btn-default{:type => "button",
+                                'ui-sref' => 'email_list.details.subscribers({ emailListId: list.id })'} Manage subscribers
+        %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          %span.caret
+          %span.sr-only Toggle Dropdown
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#", 'ui-sref' => 'email_list.details.signup_forms.settings({ emailListId: list.id })'} Signup Form
+          %li
+            %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups({ emailListId: list.id })'} Follow ups
+          %li
+            %a{:href => "#", 'ui-sref' => 'email_list.details.stats({ emailListId: list.id })'} Stats
+          %li
+            %a{:href => "#", 'ui-sref' => 'email_list.details.add_subscriber({ emailListId: list.id })'} Add Subscribers
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#"} Destroy

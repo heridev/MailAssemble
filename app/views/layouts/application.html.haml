@@ -12,7 +12,7 @@
     %meta{:content => "", :name => "description"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %link{:href => "apple-touch-icon.png", :rel => "apple-touch-icon"}/
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
@@ -26,20 +26,20 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} My App
+          %a.navbar-brand{:href => "#/"} Autoresponder V1
         #main-menu.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "#option-1"} Option 1
+              %a{:href => "/#email_list"} Manage lists
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Main Option 2
+                Manage lists
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#option-2"} Option 2
+                  %a{:href => "/#email_list"} Manage lists
                 %li
-                  %a{:href => "#option-3"} Option 3
+                  %a{:href => "/#email_list/add"} Create a list
             %li
               %a{:href => "#logout"} Log Out
         / /.nav-collapse
