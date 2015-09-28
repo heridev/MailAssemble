@@ -1,4 +1,6 @@
 class Api::V1::EmailListsController < Api::BaseController
+  respond_to :html, :json, :xml
+  before_action :find_email_list, only: :add_public_subscriber
 
   def index
     email_lists = current_user.email_lists.order('created_at DESC')
@@ -40,7 +42,50 @@ class Api::V1::EmailListsController < Api::BaseController
     end
   end
 
+  def add_public_subscriber
+    if @email_list
+      valid_email_list
+    else
+      @errors = 'Invalid email list'
+    end
+  end
+
   private
+
+    def valid_email_list
+      email = params['subscribe_email']
+      name = params['subscribe_name_input']
+      redirect_subscribed = params['already_subscribed_page']
+
+      subscribe_params = {
+        email_list_id: @email_list.try(:id),
+        name: name,
+        email: email
+      }
+
+      if Subscriber.where(email: email).exists?
+        redirect_to redirect_subscribed
+      else
+        handle_subscriber_creation(subscribe_params)
+      end
+    end
+
+    def handle_subscriber_creation(values)
+      redirect = params['thank_you_page']
+
+      subscriber = Subscriber.create(values)
+
+      if subscriber.valid?
+        redirect_to redirect
+      else
+        @errors = 'Email is required'
+      end
+    end
+
+    def find_email_list
+      uuid = params['email_uuid']
+      @email_list = EmailList.find_by(secure_key: uuid)
+    end
 
     def email_list_params
       params.require(:email_list)

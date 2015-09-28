@@ -12,6 +12,7 @@ gem 'devise'
 gem 'haml'
 gem 'multi_json'
 gem 'active_model_serializers'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'bundler'
 gem 'angular-rails-templates'

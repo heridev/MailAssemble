@@ -1,0 +1,15 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Email Autoresponder
+  %body.preload
+    %main
+      .error-wrapper
+        .error-box
+          .error-img
+            = image_tag 'icon-warning.png'
+          .error-copy
+            %h2#error-heading
+            %p#error-text
+              = @errors
+    %span#pingdom-check

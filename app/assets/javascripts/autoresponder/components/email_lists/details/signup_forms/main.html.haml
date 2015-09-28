@@ -1,0 +1,13 @@
+.row
+  .email-list-details.col-md-2.col-md-offset-10
+    %ul.nav-menu.text-right
+      %li{'ng-class' => "{ 'active': $state.includes('email_list.details.signup_forms.settings') }"}
+        %a{:href => "#", 'ui-sref' => 'email_list.details.signup_forms.settings'}
+          Settings
+
+      %li{'ng-class' => "{ 'active': $state.includes('email_list.details.signup_forms.publish') }"}
+        %a{:href => "", 'ng-click' => 'handlePublish()'}
+          Publish
+
+.row
+  %ui-view
