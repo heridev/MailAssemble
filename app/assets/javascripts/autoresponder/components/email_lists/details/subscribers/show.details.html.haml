@@ -1,0 +1,55 @@
+.row.subscriber-details
+  .row
+    .image
+      = image_tag 'default-profile.png', :width => "84"
+    .body
+      %h4 {{ subscriber.email }}
+      %h5 {{ subscriber.name }}
+      %p Subscribed: {{subscriber.created_at}}
+      %button{ type:'submit',
+               "ng-click" => "deleteSubscriber()",
+                class: 'btn btn-danger'}
+        Delete Subscriber
+
+  .row
+    .col-md-12
+      %h4.title
+        Subscriber Details
+      %button{ type:'submit',
+               "ng-click" => "editableForm.$show()",
+                class: 'btn btn-success'}
+        Edit
+
+  %form{"editable-form" => "", :name => "editableForm", :onaftersave => "updateSubscriber()"}
+
+    .row
+      .col-md-6
+        %h4 Email Address
+        %p.fields{'ng-show' => '!editableForm.$visible'}
+          {{ subscriber.email }}
+        %p.fields{'ng-show' => 'editableForm.$visible'}
+          %span{"e-name" => "email",
+                'onbeforesave' => "validateEmail($data)",
+                "e-required" => "",
+                "editable-text" => "subscriber.email"}
+
+      .col-md-6
+        %h4 Name
+        %p.fields{'ng-show' => '!editableForm.$visible'}
+          {{ subscriber.name }}
+        %p.fields{'ng-show' => 'editableForm.$visible'}
+          %span{"e-name" => "name", "editable-text" => "subscriber.name"}
+
+    .row{'ng-show' => 'editableForm.$visible'}
+      .col-md-12
+        %div
+          / button to show form
+          %button.btn.btn-default{"ng-click" => "editableForm.$show()", "ng-show" => "!editableForm.$visible", :type => "button"}
+            Edit
+          / buttons to submit / cancel form
+          %span{"ng-show" => "editableForm.$visible"}
+            %button.btn.btn-primary{"ng-disabled" => "editableForm.$waiting", :type => "submit"}
+              Save
+            %button.btn.btn-default{"ng-click" => "editableForm.$cancel()", "ng-disabled" => "editableForm.$waiting", :type => "button"}
+              Cancel
+

@@ -1,0 +1,10 @@
+%div{"infinite-scroll" => "loadMoreSubscribers()",
+     'infinite-scroll-disabled' => 'inifiteScrollStatus',
+     "infinite-scroll-distance" => "0"}
+  .row.subscribers-list
+    .col-md-4{"ng-repeat" => "subscriber in subscribers"}
+      .subscriber-element{'ng-click' => 'goToSubscriberDetails(subscriber.id)'}
+        %p.email
+          {{ subscriber.email }}
+        %p.name
+          {{ subscriber.name }}

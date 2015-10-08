@@ -1,0 +1,17 @@
+.row
+  .email-list-details.col-md-3.col-md-offset-9
+    %ul.nav-menu.text-right
+      %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers.list') }"}
+        %a{:href => "#", 'ui-sref' => '^.list'}
+          List all
+
+      %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers.show.details') }"}
+        %a{:href => "#", 'ui-sref' => '^.show.details'}
+          Details
+
+      %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers.show.activity') }"}
+        %a{:href => "", 'ui-sref' => '^.show.activity'}
+          Activity
+
+.row
+  %ui-view

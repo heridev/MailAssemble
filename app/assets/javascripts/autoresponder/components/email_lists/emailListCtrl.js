@@ -1,9 +1,13 @@
 AutoresponderApp
   .controller('emailListCtrl', [
     '$scope',
+    'ngDialog',
+    'Render',
     'EmailListService',
     function (
       $scope,
+      ngDialog,
+      Render,
       EmailListService
     ) {
 
@@ -14,6 +18,25 @@ AutoresponderApp
       };
 
       loadEmailLists();
+
+      $scope.openModal = function(current_list) {
+        $scope.current_list = current_list;
+        ngDialog.open({
+          template: 'autoresponder/components/email_lists/warningDestroy.html',
+          className: 'ngdialog-theme-default',
+          scope: $scope
+        });
+      };
+
+      $scope.destroyEmailList = function(emailListId) {
+        EmailListService.destroy(emailListId).then(function(removed_list) {
+          Render.showGrowlNotification('success', 'The email list was deleted sucessfully');
+          ngDialog.closeAll()
+          return $scope.$state.go('email_list.list', {}, { reload: true });
+        }, function(errorResponse) {
+          return Render.showGrowlNotification('warning', 'An error occurred while deleting the email list');
+        });
+      }
 
     }
   ])

@@ -23,6 +23,10 @@ AutoresponderApp
       update: function(params, emailListId) {
         return Restangular.one(model, emailListId).customPUT(params);
       },
+
+      destroy: function(emailListId) {
+        return Restangular.one(model, emailListId).remove();
+      },
     };
   }
 ]);

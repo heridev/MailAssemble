@@ -1,0 +1,31 @@
+%form{:name => "SubscriberAddForm",
+      "ng-submit" => "addSubscriber()",
+      :novalidate => ""}
+  .row
+    .col-md-4
+
+      .form-group
+        %label{:for => "name"} Name
+        %input.form-control{:type => "text",
+                            'required' => 'required',
+                            :placeholder => 'Full name',
+                            'name' => 'name',
+                            "ng-model" => 'subscriber.name'}/
+
+      .form-group{'ng-class' => "{ 'has-error': SubscriberAddForm.email.$dirty && SubscriberAddForm.email.$invalid }" }
+        %label{:for => "already-subscribed"} Email
+        %input.form-control{:type => "email",
+                            'required' => 'required',
+                            'ensure-unique-email-by-list' => "",
+                            :placeholder => 'email',
+                            'name' => 'email',
+                            'ng-model' => 'subscriber.email'}/
+        .errors{"ng-show" => "SubscriberAddForm.email.$dirty && SubscriberAddForm.email.$invalid"}
+          %span.help-block{"ng-show" => "SubscriberAddForm.email.$error.unique"} That email is already added in the list
+
+  .row
+    .col-md-6
+      %button{ type:'submit',
+               'ng-disabled' => "SubscriberAddForm.$invalid",
+               class: 'btn btn-success'}
+        Add Subscriber

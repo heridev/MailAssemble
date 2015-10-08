@@ -2,7 +2,10 @@
 var AutoresponderApp = angular.module('AutoresponderApp', [
   'templates',
   'ui.router',
+  'infinite-scroll',
   'angular-growl',
+  'ngDialog',
+  'xeditable',
   'restangular',
 ]);
 

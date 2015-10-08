@@ -9,7 +9,7 @@
         Sign up forms
 
     %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers') }"}
-      %a{:href => "#", 'ui-sref' => 'email_list.details.subscribers({ emailListId: email_list.id })'}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.subscribers.list({ emailListId: email_list.id })'}
         Manage subscribers
 
     %li{'ng-class' => "{ 'active': $state.includes('email_list.details.follow_ups') }"}
@@ -20,9 +20,8 @@
       %a{:href => "#", 'ui-sref' => 'email_list.details.stats({ emailListId: email_list.id })'}
         Stats
 
-    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.add_subscriber') }"}
-      %a{:href => "#", 'ui-sref' => 'email_list.details.add_subscriber({ emailListId: email_list.id })'}
+    %li{'ng-class' => "{ 'active': $state.includes('email_list.details.subscribers.add') }"}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.subscribers.add({ emailListId: email_list.id })'}
         Add subscribers
 
 %ui-view
-
