@@ -53,5 +53,39 @@
       }
     }
   }
+}
 
+.subscribers-list {
+  .subscriber-element {
+    border: 1px dashed #eee;
+    padding: 10px;
+    margin: 5px;
+
+    &:hover {
+      background: yellow;
+      cursor: pointer;
+    }
+
+    .email {
+      font-weight: bold;
+    }
+  }
+}
+
+.subscriber-details {
+  .image {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .title {
+    border-bottom: 1px solid #e0e0e0;
+    margin-top: 39px;
+    padding-bottom: 11px;
+  }
+
+  .fields {
+    padding: 0px 0 11px;
+    border-bottom: 1px dotted #e0e0e0;
+  }
 }

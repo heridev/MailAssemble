@@ -1,2 +1,18 @@
+/*app/assets/stylesheets/main.scs*/
 @import 'modules/variables';
 @import 'modules/email_lists';
+@import 'modules/forms';
+
+#system-notifications {
+  background-color: #f9edbe;
+  border: 1px solid #f0c36d;
+  font-size: 13px;
+  height: 28px;
+  margin-top: 12px;
+  padding: 3px 0px 0px 0px;
+  text-align: center;
+
+  a {
+    text-decoration: underline;
+  }
+}

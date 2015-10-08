@@ -1,6 +1,6 @@
 class EmailList < ActiveRecord::Base
   belongs_to :user
-  has_many :subscribers
+  has_many :subscribers, dependent: :destroy
 
   validates_presence_of :name,
                         :user_id,

@@ -86,8 +86,39 @@ AutoresponderApp
 
         .state("email_list.details.subscribers", {
           url: "/subscribers",
-          controller: 'emailListDetailsCtrl',
-          templateUrl: 'autoresponder/components/email_lists/details/subscribers.html',
+          abstract: true,
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/main.html',
+        })
+
+        .state("email_list.details.subscribers.list", {
+          url: "",
+          controller: 'subscribersCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/list.html',
+        })
+
+        .state("email_list.details.subscribers.add", {
+          url: "/add",
+          controller: 'addSubscriberCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/add.html',
+        })
+
+        .state("email_list.details.subscribers.show", {
+          url: "/details/:subscriberId",
+          abstract: true,
+          controller: 'subscriberDetailsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/show.html',
+        })
+
+        .state("email_list.details.subscribers.show.details", {
+          url: "",
+          controller: 'subscriberDetailsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/show.details.html',
+        })
+
+        .state("email_list.details.subscribers.show.activity", {
+          url: "/activity",
+          //controller: 'subscriberDetailsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/subscribers/show.activity.html',
         })
 
         .state("email_list.details.follow_ups", {
@@ -101,13 +132,5 @@ AutoresponderApp
           //controller: 'emailListStatsCtrl',
           templateUrl: 'autoresponder/components/email_lists/details/stats.html',
         })
-
-        .state("email_list.details.add_subscriber", {
-          url: "/add_subscriber",
-          //controller: 'emailListFollowUpsCtrl',
-          templateUrl: 'autoresponder/components/email_lists/details/add_subscriber.html',
-        })
     }
   ]);
-
-

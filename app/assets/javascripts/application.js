@@ -19,6 +19,9 @@
 //= require restangular/restangular
 //= require angular-rails-templates
 //= require angular-growl-2
+//= require ngInfiniteScroll
+//= require angular-xeditable
+//= require ngDialog
 
 //= require autoresponder/app
 //= require autoresponder/states

@@ -13,6 +13,8 @@ gem 'haml'
 gem 'multi_json'
 gem 'active_model_serializers'
 gem 'rack-cors', require: 'rack/cors'
+gem 'kaminari'
+gem 'paper_trail', '~> 4.0.0'
 
 gem 'bundler'
 gem 'angular-rails-templates'
@@ -23,6 +25,9 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-restangular'
   gem 'rails-assets-underscore'
   gem 'rails-assets-angular-growl-2'
+  gem 'rails-assets-ngInfiniteScroll'
+  gem 'rails-assets-angular-xeditable', '= 0.1.8'
+  gem 'rails-assets-ngDialog'
 end
 
 # I tried to put this in assets group

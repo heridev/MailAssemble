@@ -3,7 +3,6 @@ AutoresponderApp
      return {
        restrict: 'A',
        link: function( $scope, elem, attrs) {
-         debugger
          $(elem).val('hello');
          elem.bind('keyup', function($event) {
            var element = $event.target;
