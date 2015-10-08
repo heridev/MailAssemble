@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151006211225) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "email_lists", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -55,19 +58,19 @@ ActiveRecord::Schema.define(version: 20151006211225) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",                        null: false
-    t.integer  "item_id",                          null: false
-    t.string   "event",                            null: false
+    t.string   "item_type",     null: false
+    t.integer  "item_id",       null: false
+    t.string   "event",         null: false
     t.string   "whodunnit"
-    t.text     "object",        limit: 1073741823
+    t.text     "object"
     t.datetime "created_at"
     t.integer  "email_list_id"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
