@@ -1,4 +1,4 @@
-#email-lists
+.articles
   .row
     %button{class: 'btn btn-success pull-right', 'ui-sref' => 'email_list.add'}
       Create List
@@ -30,11 +30,11 @@
           %li
             %a{:href => "#", 'ui-sref' => 'email_list.details.signup_forms.settings({ emailListId: list.id })'} Signup Form
           %li
-            %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups({ emailListId: list.id })'} Follow ups
+            %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups.list({ emailListId: list.id })'} Follow ups
           %li
             %a{:href => "#", 'ui-sref' => 'email_list.details.stats({ emailListId: list.id })'} Stats
           %li
-            %a{:href => "#", 'ui-sref' => 'email_list.details.add_subscriber({ emailListId: list.id })'} Add Subscribers
+            %a{:href => "#", 'ui-sref' => 'email_list.details.subscribers.add({ emailListId: list.id })'} Add Subscribers
           %li.divider{:role => "separator"}
           %li
             %a{:href => "", 'ng-click' => 'openModal(list)'} Destroy

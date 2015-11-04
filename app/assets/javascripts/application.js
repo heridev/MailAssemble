@@ -22,6 +22,8 @@
 //= require ngInfiniteScroll
 //= require angular-xeditable
 //= require ngDialog
+//= require angular-ui-sortable
+//= require jquery-ui
 
 //= require autoresponder/app
 //= require autoresponder/states

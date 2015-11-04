@@ -1,0 +1,29 @@
+.row
+
+  .row
+    .col-md-12
+      %h2.title
+        Are you sure you want to delete this follow up?
+
+    .row
+      .col-md-12
+        %h4
+          All the information related will be deleted as well
+  .row
+    .col-md-7
+      %label{'for' => 'delete_confirmation'}
+        Type DELETE to confirm
+      %input.form-control{ :name => "default_from_name",
+                           :id => 'delete_confirmation',
+                           'required' => 'required',
+                           :placeholder => 'Type DELETE to confirm.',
+                           'ng-model' => 'input_confirmation',
+                           :type => "text",
+                           :value => ""}/
+
+  %button.ngdialog-button.ngdialog-button-secondary{"ng-click" => "closeThisDialog(0)", :type => "button"} No
+  %button.ngdialog-button.ngdialog-button-primary{ "ng-click" => "destroyFollowUp(current_follow_up.id)",
+                                                   'ng-class' => "{ 'ngdialog-button-secondary': input_confirmation != 'DELETE' }",
+                                                   "ng-disabled" => "input_confirmation != 'DELETE'",
+                                                   :type => "button" } Yes
+

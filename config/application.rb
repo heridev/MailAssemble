@@ -10,6 +10,10 @@ module AngularRailsAutoresponder
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.active_job.queue_adapter = :delayed_job
+
+    config.autoload_paths << Rails.root.join('lib')
+
     config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
       allow do
         origins '*'

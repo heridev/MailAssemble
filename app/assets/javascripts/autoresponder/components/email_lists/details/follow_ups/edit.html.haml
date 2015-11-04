@@ -1,0 +1,56 @@
+%form.follow-up-form{:name => "FollowUpForm",
+                     "ng-submit" => "updateFollowUp()",
+                     :novalidate => ""}
+  .row
+    %h3
+      Follow Up Details
+    .col-md-7
+
+      .form-group{'ng-class' => "{ 'has-error': FollowUpForm.title.$invalid }"}
+        %label{:for => "title"} Title
+        %input#title.form-control{:type => "text",
+                                  'required' => 'required',
+                                  'name' => 'title',
+                                  "ng-model" => 'follow_up.title'}/
+
+      .form-group{'ng-class' => "{ 'has-error': FollowUpForm.content.$invalid }"}
+        %label{:for => "content"} Content
+        %textarea#content.form-control{ :rows => '10',
+                                        'required' => 'required',
+                                        'name' => 'content',
+                                        "ng-model" => "follow_up.content"}
+    .col-md-5.interval-section
+      %h4
+        Interval
+
+      %div{'ng-show' => 'follow_up.first_in_email_list'}
+        Follow Up # 1 is the welcome message your subscribers will get immediately after signing up.
+
+      %div{'ng-show' => '!follow_up.first_in_email_list'}
+        %span.form-group{'ng-class' => "{ 'has-error': FollowUpForm.days_to_be_sent_after_previous.$invalid  }"}
+          %label.title{:for => "title"} Follow Up # {{email_list.follow_ups_count}} sent
+          %input#title.form-control{:type => "number",
+                                    'required' => 'required',
+                                    'name' => 'days_to_be_sent_after_previous',
+                                    'ng-class' => "{ 'has-error': FollowUpForm.days_to_be_sent_after_previous.$invalid }",
+                                    "ng-model" => 'follow_up.days_to_be_sent_after_previous'}/
+
+        day(s) after previous
+
+      %hr
+
+      %ng-include{'ng-show' => '!follow_up.first_in_email_list',
+                  :src => "'autoresponder/components/email_lists/details/follow_ups/send_window_preferences.html'"}
+
+  .row
+    .col-md-6
+      %button{ type:'submit',
+               'ng-disabled' => "FollowUpForm.$invalid",
+               class: 'btn btn-success'}
+        Save settings
+
+      %button{ type:'button',
+               'ui-sref' => 'email_list.details.follow_ups.list',
+               class: 'btn btn-warning'}
+        Cancel
+

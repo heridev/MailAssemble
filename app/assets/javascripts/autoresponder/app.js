@@ -6,6 +6,7 @@ var AutoresponderApp = angular.module('AutoresponderApp', [
   'angular-growl',
   'ngDialog',
   'xeditable',
+  'ui.sortable',
   'restangular',
 ]);
 
