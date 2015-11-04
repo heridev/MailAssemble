@@ -13,7 +13,7 @@
         Manage subscribers
 
     %li{'ng-class' => "{ 'active': $state.includes('email_list.details.follow_ups') }"}
-      %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups({ emailListId: email_list.id })'}
+      %a{:href => "#", 'ui-sref' => 'email_list.details.follow_ups.list({ emailListId: email_list.id })'}
         Follow ups
 
     %li{'ng-class' => "{ 'active': $state.includes('email_list.details.stats') }"}

@@ -1,23 +1,27 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'pg'
+gem 'pg', '~> 0.18.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails', '~> 4.0.5'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
-gem 'haml'
-gem 'multi_json'
-gem 'active_model_serializers'
+gem 'devise', '~> 3.5.2'
+gem 'haml', '~>4.0.7'
+gem 'multi_json', '~> 1.2'
+gem 'active_model_serializers', '~> 0.9.3'
 gem 'rack-cors', require: 'rack/cors'
-gem 'kaminari'
+gem 'kaminari', '~> 0.16.3'
 gem 'paper_trail', '~> 4.0.0'
+gem 'delayed_job_active_record', '~> 4.1.0'
+gem 'delayed_job_web', '~> 1.2.10'
+gem 'mandrill_mailer', '~> 1.1.0'
+gem 'aasm', '~> 4.3.0'
+gem 'liquid', '~> 2.6.1'
 
 gem 'bundler'
-gem 'angular-rails-templates'
+gem 'angular-rails-templates', '~> 0.1.5'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
@@ -28,23 +32,18 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ngInfiniteScroll'
   gem 'rails-assets-angular-xeditable', '= 0.1.8'
   gem 'rails-assets-ngDialog'
+  gem 'rails-assets-angular-ui-sortable', '= 0.13.4'
+  gem 'rails-assets-jquery-ui'
 end
 
 # I tried to put this in assets group
 # but it does not work for that reason
 # this libraries are here :(
-gem 'less-rails'
-gem 'railsstrap'
+gem 'less-rails', '~> 2.7.0'
+gem 'railsstrap', '~> 3.3.4'
 
 group :development, :test do
   gem 'pry'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 

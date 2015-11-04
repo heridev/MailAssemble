@@ -7,5 +7,9 @@ AutoresponderApp.factory('Utils', function() {
       port = window.location.port ? ":" + window.location.port : "";
       return domain + port + url_params;
     },
+
+    isDefined: function(obj) {
+      return angular.isDefined(obj) && obj !== null;
+    },
   }
 });

@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006211225) do
+ActiveRecord::Schema.define(version: 20151015221437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "email_lists", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +49,41 @@ ActiveRecord::Schema.define(version: 20151006211225) do
     t.string   "already_subscribed_url"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "follow_up_schedules", force: :cascade do |t|
+    t.integer  "follow_up_id"
+    t.integer  "subscriber_id"
+    t.string   "state"
+    t.datetime "run_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "follow_ups", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "days_to_be_sent_after_previous", default: 1
+    t.datetime "time_to_be_sent"
+    t.text     "content"
+    t.integer  "email_list_id"
+    t.integer  "position"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "send_windows", force: :cascade do |t|
+    t.boolean  "sunday"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.string   "hour"
+    t.integer  "follow_up_id"
+    t.integer  "hour_in_minutes"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "subscribers", force: :cascade do |t|

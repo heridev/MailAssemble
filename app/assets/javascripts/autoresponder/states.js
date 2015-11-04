@@ -11,7 +11,7 @@ AutoresponderApp
       $stateProvider
         .state("home", {
           url: "/",
-          template: '<h1>Welcome to our new autoresponder</h1>',
+          templateUrl: 'autoresponder/components/dashboard_home.html',
         })
 
         .state("email_list", {
@@ -123,8 +123,27 @@ AutoresponderApp
 
         .state("email_list.details.follow_ups", {
           url: "/follow_ups",
-          controller: 'emailListDetailsCtrl',
-          templateUrl: 'autoresponder/components/email_lists/details/follow_ups.html',
+          abstract: true,
+          controller: 'parentFollowUpsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/follow_ups/main.html',
+        })
+
+        .state("email_list.details.follow_ups.list", {
+          url: "",
+          controller: 'followUpsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/follow_ups/index.html',
+        })
+
+        .state("email_list.details.follow_ups.add", {
+          url: "/add",
+          controller: 'createFollowUpsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/follow_ups/add.html',
+        })
+
+        .state("email_list.details.follow_ups.edit", {
+          url: "/edit/:followUpId",
+          controller: 'followUpDetailsCtrl',
+          templateUrl: 'autoresponder/components/email_lists/details/follow_ups/edit.html',
         })
 
         .state("email_list.details.stats", {

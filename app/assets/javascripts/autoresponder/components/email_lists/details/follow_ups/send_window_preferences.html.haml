@@ -1,0 +1,79 @@
+%h4 Send window
+
+%div{'ng-repeat' => 'send_window in follow_up.send_windows_attributes'}
+  %div{'ng-show' => '!send_window._destroy'}
+    %div{class: 'pull-right'}
+      %a{:href => "", 'ng-click' => 'removeSendWindowFrom(follow_up, $index, send_window)'}
+        %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+
+    %h5 Time
+    .form-group{'ng-class' => "{ 'has-error': FollowUpForm.hour.$invalid }"}
+      %select.form-control{"ng-model" => "send_window.hour",
+                           'required' => 'required',
+                           'name' => 'hour',
+                           "ng-options" => "hour as hour for hour in availableHours"}
+
+    %h5 Day
+    %br
+    %div{ 'ng-show' => "validDaySelected(send_window)" }
+      %h5.text-danger You must select at least one option
+    .btn-group{"data-toggle" => "buttons", 'data-validation' => "required"}
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.sunday",
+               :type => "checkbox",
+               'name' => 'send_window.sunday',
+               'ng-required' => "validDaySelected(send_window)",
+               'checkbox-with-change-handler' => ''}/
+        Sun
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.monday",
+               :type => "checkbox",
+               'name' => 'monday',
+               'checkbox-with-change-handler' => ''}/
+        Mon
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.tuesday",
+               :type => "checkbox",
+               'name' => 'send_window.tuesday',
+               'checkbox-with-change-handler' => ''}/
+        Tue
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.wednesday",
+               :type => "checkbox",
+               'name' => 'wednesday',
+               'ng-required' => "validDaySelected(send_window)",
+               'checkbox-with-change-handler' => ''}/
+        Wed
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.thursday",
+               :type => "checkbox",
+               'name' => 'thursday',
+               'ng-required' => "validDaySelected(send_window)",
+               'checkbox-with-change-handler' => ''}/
+        Thu
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.friday",
+               :type => "checkbox",
+               'ng-required' => "validDaySelected(send_window)",
+               'name' => 'friday',
+               'checkbox-with-change-handler' => ''}/
+        Fri
+
+      %label.btn.btn-primary
+        %input{'ng-model' => "send_window.saturday",
+               :type => "checkbox",
+               'name' => 'saturday',
+               'checkbox-with-change-handler' => ''}/
+        Sat
+
+    %hr
+%button{ type:'button',
+         'ng-click' => 'addSendWindowTo(follow_up)',
+         class: 'btn btn-sm btn-success'}
+  Add new send window
+

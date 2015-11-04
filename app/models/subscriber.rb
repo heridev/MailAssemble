@@ -12,4 +12,14 @@ class Subscriber < ActiveRecord::Base
   # For example to restablish all the subscriber for an email list
   # when using meta do not forget to create a new migration for that
   has_paper_trail meta: { email_list_id: :email_list_id }
+
+  after_create :process_follow_ups
+
+  private
+
+    # let schedule the follow ups according to the email list
+    def process_follow_ups
+      manager = Autoresponder::Jobs::FollowUpManagerJob.new(self.email_list.id)
+      manager.send_first_email_notification(self.id)
+    end
 end

@@ -1,4 +1,4 @@
-#email-lists {
+.articles {
   .row {
     border-bottom: 1px solid $corn_silk;
     padding: 17px 0;
@@ -16,6 +16,17 @@
       font-size: 20px;
       padding: 16px;
     }
+
+   }
+
+  .row-hover {
+    &:hover {
+      background: #fafafa;
+    }
+  }
+
+  .sortable-row {
+    cursor: move;
   }
 
 }
@@ -87,5 +98,21 @@
   .fields {
     padding: 0px 0 11px;
     border-bottom: 1px dotted #e0e0e0;
+  }
+}
+
+.follow-up-form {
+  .interval-section {
+
+    label.title {
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    #title {
+      width: 100px;
+      display: inline-block;
+    }
+
   }
 }

@@ -6,4 +6,5 @@
  *= require angular-growl-2
  *= require bootstrap_and_overrides
  *= require ngDialog
+ *= require jquery-ui
  */

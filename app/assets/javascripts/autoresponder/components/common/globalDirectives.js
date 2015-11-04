@@ -33,3 +33,25 @@ AutoresponderApp
        }
      };
    })
+
+   .directive('checkboxWithChangeHandler', ['$timeout', function($timeout) {
+     return {
+       replace: false,
+       require: 'ngModel',
+       scope: false,
+       link: function (scope, element, attr, ngModelCtrl) {
+        $timeout( function(){
+          if(element[0].checked) {
+            $(element).parent().addClass('active')
+          }
+        }, 0);
+
+         $(element).change(function () {
+           scope.$apply(function () {
+             ngModelCtrl.$setViewValue(element[0].checked);
+           });
+         });
+       }
+     };
+   }]);
+
