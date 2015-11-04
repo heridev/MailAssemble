@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
+
 gem 'rails', '4.2.4'
 gem 'pg', '~> 0.18.3'
 gem 'sass-rails', '~> 5.0'
@@ -35,6 +37,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ngDialog'
   gem 'rails-assets-angular-ui-sortable', '= 0.13.4'
   gem 'rails-assets-jquery-ui'
+end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.2'
 end
 
 # I tried to put this in assets group
