@@ -19,6 +19,7 @@ gem 'delayed_job_web', '~> 1.2.10'
 gem 'mandrill_mailer', '~> 1.1.0'
 gem 'aasm', '~> 4.3.0'
 gem 'liquid', '~> 2.6.1'
+gem 'unicorn', '~> 5.0.0'
 
 gem 'bundler'
 gem 'angular-rails-templates', '~> 0.1.5'

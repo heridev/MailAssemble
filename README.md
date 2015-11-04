@@ -80,6 +80,16 @@ rake jobs:work
 
 As the autoresponder is using delayed jobs web gem you can manage the jobs visiting the route /delayed_secret_job which is defined in the config/routes.rb in case you want to customize the url.
 
+
+### Running delayed jobs in heroku:
+```
+# in your Profile file:
+worker: QUEUES=notifications bundle exec rake jobs:work
+
+# if you want to add more just add them in that line something like:
+worker: QUEUES=notifications,email,transactions,etc bundle exec rake jobs:work
+```
+
 Placeholder follow ups variables
 ================================
 In case you want to include the name or email in your follow ups you can do it using the placeholders for instance:
@@ -90,7 +100,6 @@ Available variables at this time:
 - name
 - email
 
-
 Scheduled follow ups
 =====================
 
@@ -99,7 +108,7 @@ In order to send scheduled follow ups you can make use of:
 bundle exec rake autoresponder:send_scheduled_follow_ups
 ```
 
-So, for example you can create a cron job and invoke it each 10 minutes, if you're using heroku you can use scheduler
+So, for example you can create a cron job and invoke it each 10 minutes, if you're using heroku you can use scheduler.
 
 NOTE: in case that you want to make sure that every follow up is sent correctly you can run this command each 30 minutes as well:
 ```
