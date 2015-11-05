@@ -28,7 +28,7 @@
 
       %div{'ng-show' => '!follow_up.first_in_email_list'}
         %span.form-group{'ng-class' => "{ 'has-error': FollowUpForm.days_to_be_sent_after_previous.$invalid  }"}
-          %label.title{:for => "title"} Follow Up # {{email_list.follow_ups_count}} sent
+          %label.title{:for => "title"} Follow Up # {{follow_up.position || email_list.follow_ups_count}} sent
           %input#title.form-control{:type => "number",
                                     'required' => 'required',
                                     'name' => 'days_to_be_sent_after_previous',

@@ -28,7 +28,10 @@ module Autoresponder
           schedule_next(follow_up.id, subscriber_id) if find_next_scheduled(follow_up.id)
           scheduled.finish!
         rescue => e
-          Rails.logger.error "================ Error while sending process follow ups #{e.inspect}============"
+          puts "================ Error while sending process follow ups #{e.inspect}============"
+          puts "scheduled #{scheduled.inspect}============"
+          puts "follow_up #{follow_up.inspect}============"
+          puts "subscriber #{subscriber.inspect}============"
           scheduled.error!
         end
       end
