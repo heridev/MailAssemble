@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.8'
 gem 'pg', '~> 0.18.3'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.4'
+gem 'uglifier', '>= 2.7.2'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', '~> 4.0.5'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 1.0.0', group: :doc
 gem 'devise', '~> 3.5.2'
 gem 'haml', '~>4.0.7'
 gem 'multi_json', '~> 1.2'
