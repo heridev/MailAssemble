@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '5.0.0'
 gem 'pg', '~> 0.18.3'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.5'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails', '~> 4.0.5'
+gem 'coffee-rails', '~> 4.1.1'
+gem 'jquery-rails', '~> 4.4.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise', '~> 3.5.2'
+gem 'devise', '~> 4.0.0'
 gem 'haml', '~>4.0.7'
 gem 'multi_json', '~> 1.2'
 gem 'active_model_serializers', '~> 0.9.3'
@@ -24,7 +24,7 @@ gem 'liquid', '~> 2.6.1'
 gem 'unicorn', '~> 5.0.0'
 
 gem 'bundler'
-gem 'angular-rails-templates', '~> 0.1.5'
+gem 'angular-rails-templates', '~> 1.0.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
