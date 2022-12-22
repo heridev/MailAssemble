@@ -4,7 +4,7 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.4'
 gem 'pg', '~> 0.18.3'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', '~> 4.0.5'
@@ -24,7 +24,7 @@ gem 'liquid', '~> 2.6.1'
 gem 'unicorn', '~> 5.0.0'
 
 gem 'bundler'
-gem 'angular-rails-templates', '~> 0.1.5'
+gem 'angular-rails-templates', '~> 1.0.1'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
@@ -46,7 +46,7 @@ end
 # I tried to put this in assets group
 # but it does not work for that reason
 # this libraries are here :(
-gem 'less-rails', '~> 2.7.0'
+gem 'less-rails', '~> 4.0.0'
 gem 'railsstrap', '~> 3.3.4'
 
 group :development, :test do
